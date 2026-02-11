@@ -126,9 +126,6 @@
 
         <body>
             <div class="container">
-                <div id="brokenHeart" class="full-screen" onclick="showWasted()" style="display: none; background: none; justify-content: center; align-items: center;">
-                    <img src="broken_heart.gif" style="width: 700px; height: auto;">
-                </div>
                 <div class="image-wrapper">
                     <img class="frame" src="lace_box.png">
                     <img id="mainImage" class="character" src="heart_hand.png">
@@ -178,13 +175,8 @@
                         document.getElementById("buttonContainer").style.display = "none";
 
                         document.body.style.backgroundImage = "none";
-                        document.getElementById("brokenHeart").style.display = "flex";
+                        document.getElementById("fullScreenImage").style.display = "flex";
                     }
-                }
-
-                function showWasted() {
-                    document.getElementById("brokenHeart").style.display = "none";
-                    document.getElementById("fullScreenImage").style.display = "flex";
                 }
 
                 function resetPage() {
@@ -208,6 +200,7 @@
         </body>
 
 </html>
+
 
 
 
