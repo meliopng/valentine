@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>be my valentine?</title>
+
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                font-family: Arial, sans-serif;
+
+                background-image: url("images/pink_bg.png");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat; 
+                transition: background-image 0.5s ease;
+            }
+
+            .container {
+                margin-top: 100px;
+            }
+
+            img {
+                width: 200px;
+                height: auto;
+            }
+
+            h1 {
+                font-size: 3rem;
+                color:palevioletred;
+                text-shadow: 2px 2px 5px whitesmoke;
+                white-space: pre-line;
+            }
+
+            #buttonContainer {
+                margin-top: 20px;
+            }
+
+            button {
+                padding: 15px 30px;
+                font-size: 1.2rem;
+                margin: 10px;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                color:rgb(255, 240, 249)
+            }
+
+            button:hover {
+                scale: 1.05;
+                background-color:rgb(243, 113, 134)
+            }
+
+            .yes {
+                background-color: rgb(236, 139, 155);
+                
+            }
+
+            .no {
+                background-color: rgb(236, 139, 155);
+            }
+
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background-color: black;
+                display: none;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .overlay img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .image-wrapper {
+                position: relative;
+                display: inline-block;
+            }
+
+            .frame {
+                width: 300px;
+            }
+
+            .character {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 269px;
+            }
+
+            .full-screen {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                background: black;
+                z-index: 1000;
+            }
+
+            .full-screen img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        </style>
+        </head>
+
+        <body>
+            <div class="container">
+                <div class="image-wrapper">
+                    <img class="frame" src="images/lace_box.png">
+                    <img id="mainImage" class="character" src="images/heart_hand.png">
+                </div>
+                <h1 id="mainText">Be my Valentine? :)</h1>
+                <div id="buttonContainer">
+                    <button class="yes" onclick="yesClicked()">YES!!!! (correct choice)</button>
+                    <button class="no" onclick="noClicked()">no.</button>
+                </div>
+            </div>
+
+            <div id="fullScreenImage" class="full-screen" onClick="resetPage()">
+                <img src="images/WASTED.png">
+            </div>
+
+            <script>
+
+                let noCount = 0;
+
+                function yesClicked() {
+                    document.body.style.backgroundImage = "url(images/blue_bg.png)";
+                    document.getElementById("mainImage").src = "images/kissing_fish.gif";
+                    document.getElementById("mainText").innerText = "YAY you're the best\nHappy Valentines day xoxo";
+
+                    document.getElementById("buttonContainer").style.display = "none";
+                }
+
+                function noClicked() {
+                    noCount++;
+
+                    if (noCount === 1) {
+                        document.getElementById("mainImage").src = "images/angry_4.png";
+                        document.getElementById("mainText").innerText = "Oh so you hate me.";
+                    }
+
+                    else if (noCount === 2) {
+                        document.getElementById("mainImage").src = "images/angry_3.png";
+                        document.getElementById("mainText").innerText = "Yeah you're so funny huh.";
+                    }
+                    else if (noCount === 3) {
+                        document.getElementById("mainImage").src = "images/angry_2.png";
+                        document.getElementById("mainText").innerText = "Click it one more time fucker";
+                    }
+                    else if (noCount === 4) {
+                        document.querySelector(".container").style.display = "none";
+                        document.getElementById("buttonContainer").style.display = "none";
+
+                        document.body.style.backgroundImage = "none";
+                        document.getElementById("fullScreenImage").style.display = "flex";
+                    }
+                }
+
+                function resetPage() {
+                    document.getElementById("fullScreenImage").style.display = "none";
+                    document.body.style.backgroundImage = "url('images/pink_bg.png')";
+
+                    document.querySelector(".container").style.display = "block";
+                    document.getElementById("buttonContainer").style.display = "block";
+
+                    document.querySelectorAll("button").forEach(btn => {
+                        btn.innerText = "YESYESYES!!!!!!";
+                        btn.onclick = yesClicked;
+                    });
+
+                    document.getElementById("mainImage").src = "images/angry_1.png";
+                    document.getElementById("mainText").innerHTML = "...";
+
+                    noCount = 0;
+                }
+            </script>
+        </body>
+</html>
