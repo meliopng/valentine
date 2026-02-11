@@ -12,7 +12,7 @@
                 text-align: center;
                 font-family: Arial, sans-serif;
 
-                background-image: url("images/pink_bg.png");
+                background-image: url("pink_bg.png");
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat; 
@@ -122,8 +122,8 @@
         <body>
             <div class="container">
                 <div class="image-wrapper">
-                    <img class="frame" src="images/lace_box.png">
-                    <img id="mainImage" class="character" src="images/heart_hand.png">
+                    <img class="frame" src="lace_box.png">
+                    <img id="mainImage" class="character" src="heart_hand.png">
                 </div>
                 <h1 id="mainText">Be my Valentine? :)</h1>
                 <div id="buttonContainer">
@@ -133,7 +133,7 @@
             </div>
 
             <div id="fullScreenImage" class="full-screen" onClick="resetPage()">
-                <img src="images/WASTED.png">
+                <img src="WASTED.png">
             </div>
 
             <script>
@@ -141,8 +141,8 @@
                 let noCount = 0;
 
                 function yesClicked() {
-                    document.body.style.backgroundImage = "url(images/blue_bg.png)";
-                    document.getElementById("mainImage").src = "images/kissing_fish.gif";
+                    document.body.style.backgroundImage = "url(blue_bg.png)";
+                    document.getElementById("mainImage").src = "kissing_fish.gif";
                     document.getElementById("mainText").innerText = "YAY you're the best\nHappy Valentines day xoxo";
 
                     document.getElementById("buttonContainer").style.display = "none";
@@ -152,16 +152,16 @@
                     noCount++;
 
                     if (noCount === 1) {
-                        document.getElementById("mainImage").src = "images/angry_4.png";
+                        document.getElementById("mainImage").src = "angry_4.png";
                         document.getElementById("mainText").innerText = "Oh so you hate me.";
                     }
 
                     else if (noCount === 2) {
-                        document.getElementById("mainImage").src = "images/angry_3.png";
+                        document.getElementById("mainImage").src = "angry_3.png";
                         document.getElementById("mainText").innerText = "Yeah you're so funny huh.";
                     }
                     else if (noCount === 3) {
-                        document.getElementById("mainImage").src = "images/angry_2.png";
+                        document.getElementById("mainImage").src = "angry_2.png";
                         document.getElementById("mainText").innerText = "Click it one more time fucker";
                     }
                     else if (noCount === 4) {
@@ -175,7 +175,7 @@
 
                 function resetPage() {
                     document.getElementById("fullScreenImage").style.display = "none";
-                    document.body.style.backgroundImage = "url('images/pink_bg.png')";
+                    document.body.style.backgroundImage = "url('pink_bg.png')";
 
                     document.querySelector(".container").style.display = "block";
                     document.getElementById("buttonContainer").style.display = "block";
@@ -185,11 +185,12 @@
                         btn.onclick = yesClicked;
                     });
 
-                    document.getElementById("mainImage").src = "images/angry_1.png";
+                    document.getElementById("mainImage").src = "angry_1.png";
                     document.getElementById("mainText").innerHTML = "...";
 
                     noCount = 0;
                 }
             </script>
         </body>
+
 </html>
